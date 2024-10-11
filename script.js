@@ -7,7 +7,7 @@ const goToContacts = document.getElementById('goToContacts');
 // Load messages from local storage
 function loadMessages() {
     const messages = JSON.parse(localStorage.getItem('messages')) || [];
-    chatbox.innerHTML = '';
+    chatbox.innerHTML = ''; // Clear previous messages
     messages.forEach(message => {
         const div = document.createElement('div');
         div.className = 'message';
@@ -39,8 +39,8 @@ goToContacts.addEventListener('click', () => {
     window.location.href = 'contacts.html';
 });
 
-// Set interval to reload messages every 5 seconds
-setInterval(loadMessages, 5000);
+// Set interval to reload messages every 2 seconds
+setInterval(loadMessages, 2000);
 
 // Attach event listener to send button
 sendButton.addEventListener('click', sendMessage);
