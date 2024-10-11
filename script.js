@@ -12,7 +12,7 @@ function loadMessages() {
         const div = document.createElement('div');
         div.className = 'message';
         div.innerHTML = `<span class="username">${message.sender}</span>: ${message.text}`;
-        chatbox.insertBefore(div, chatbox.firstChild); // Add to top
+        chatbox.appendChild(div); // Append to chatbox
     });
 }
 
@@ -22,7 +22,10 @@ function sendMessage() {
     const recipient = recipientInput.value;
 
     const username = localStorage.getItem('username');
-    if (messageText.trim() === '' || recipient.trim() === '' || !username) return;
+    if (messageText.trim() === '' || recipient.trim() === '' || !username) {
+        alert("Please enter a message and a recipient.");
+        return;
+    }
 
     // Save message to local storage
     const messages = JSON.parse(localStorage.getItem('messages')) || [];
