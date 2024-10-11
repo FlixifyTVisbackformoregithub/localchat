@@ -29,7 +29,7 @@ registerButton.addEventListener('click', () => {
 // Display users
 function displayContacts() {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    contactsDiv.innerHTML = '<strong>Available contacts:</strong><br>' + users.map(user => user + '@dn.com').join('<br>');
+    contactsDiv.innerHTML = '<strong>Available contacts:</strong><br>' + users.map(user => user).join('<br>');
     loadInbox();
 }
 
